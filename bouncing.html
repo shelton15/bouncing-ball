@@ -79,6 +79,38 @@
                 y = y + vy;
         
             }
+            //function to change ball color
+            //function isn't working
+            //fix it and use to you will
+            function changeColor() {
+                var context;
+                var vx = 4;
+                var vy = 4;
+                var y = 150;
+                var x = 10;
+                var color = get_random_color();
+
+                function draw() {
+                    context = myCanvas.getContext('2d');
+                    context.clearRect(0, 0, 400, 400);
+                    context.beginPath();
+                    context.fillStyle = color;
+                    context.arc(x, y, 10, 0, Math.PI * 2, true);
+                    context.closePath();
+                    context.fill();
+                    if (x < 0 || x > 400) {
+                        dx = -dx;
+                        color = get_random_color();
+                    }
+                    if (y < 0 || y > 300) {
+                        dy = -dy;
+                        color = get_random_color();
+                    }
+                    x += dx;
+                    y += dy;
+                }
+                setInterval(draw, 10);
+            }
         </script>
         
 	</center>
